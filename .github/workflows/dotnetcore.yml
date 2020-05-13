@@ -25,5 +25,3 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Pack
       run: dotnet pack --configuration Release
-    - name: Publish
-      run: dotnet nuget push "bin/Release/hello-world-dotnet-core.1.0.0.nupkg" --source "github" 
