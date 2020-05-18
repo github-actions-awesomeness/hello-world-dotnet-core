@@ -22,7 +22,7 @@ jobs:
     - name: Setup .NET Core
       with:
         dotnet-version: 3.1.101
-        source-url: https://nuget.pkg.github.com/usernamecompanyname/index.json
+        source-url: https://nuget.pkg.github.com/github-actions-awesomeness/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       uses: actions/setup-dotnet@v1
