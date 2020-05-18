@@ -9,30 +9,19 @@ on:
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
-          - macos-latest
+    runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: Setup .NET Core
-      with:
+      uses: actions/setup-dotnet@master
+      with: 
         dotnet-version: 3.1.101
-        source-url: https://nuget.pkg.github.com/contacttopeter/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      uses: actions/setup-dotnet@v1
-    - name: Install dependencies
-      run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-    - name: Generate a NuGet package
-      run: dotnet pack --no-build -c Release -o .
-    - name: Push to GitHub package registry
-      run: dotnet nuget push *.nupkg
+      run: dotnet build --configuration Release
+    - name: Pack
+      run: dotnet pack --configuration Release --version-suffix action-testing -o "./packages"
+    - name: Publish
+      env:
+           NUGET_AUTH_TOKEN: ${{secrets.NUGET_AUTH_TOKEN}}
+      run: dotnet nuget push -s https://www.nuget.org/api/v2/package -k $NUGET_AUTH_TOKEN ./packages/*.nupkg
