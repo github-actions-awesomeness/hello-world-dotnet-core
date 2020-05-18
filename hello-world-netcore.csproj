@@ -6,4 +6,8 @@
     <RootNamespace>hello_world_netcore</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
+  </ItemGroup>
+  
 </Project>
