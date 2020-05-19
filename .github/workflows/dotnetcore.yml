@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: Ncr_Runner
+    runs-on: azure
     
     steps:
     - uses: actions/checkout@v1
