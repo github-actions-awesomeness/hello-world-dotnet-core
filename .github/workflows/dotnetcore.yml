@@ -26,6 +26,6 @@ jobs:
       run: |
         for f in ./packages/*.nupkg
         do
-          curl -vX PUT -u "username:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/username/
+          curl -vX PUT -u "username:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/github-actions-awesomeness/
         done
       if: github.event_name == 'push'
