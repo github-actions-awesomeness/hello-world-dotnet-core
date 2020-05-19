@@ -4,11 +4,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>hello_world_netcore</RootNamespace>
+    <RepositoryUrl>https://github.com/github-actions-awesomeness/hello-world-dotnet-core.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
-  <RepositoryUrl>https://github.com/github-actions-awesomeness/hello-world-dotnet-core.git</RepositoryUrl>
-  <RepositoryType>git</RepositoryType>
-  
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.4" />
   </ItemGroup>
