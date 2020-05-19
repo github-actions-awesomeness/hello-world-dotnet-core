@@ -23,7 +23,9 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release --version-suffix action-testing -o "./packages"
     - name: Publish
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #run: dotnet nuget push -s https://www.nuget.org/api/v2/package -k $GITHUB_TOKEN ./packages/*.nupkg
-      run: dotnet nuget push "bin/Release/hello-world-dotnet-core.1.0.0.nupkg" --source "github"
+      run: |
+        for f in ./packages/*.nupkg
+        do
+          curl -vX PUT -u "username:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/username/
+        done
+      if: github.event_name == 'push'
