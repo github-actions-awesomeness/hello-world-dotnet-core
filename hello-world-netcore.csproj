@@ -6,7 +6,7 @@
     <RootNamespace>hello_world_netcore</RootNamespace>
   </PropertyGroup>
 
-  <RepositoryUrl>https://github.com/EoflaOE/Kernel-Simulator.git</RepositoryUrl>
+  <RepositoryUrl>https://github.com/github-actions-awesomeness/hello-world-dotnet-core.git</RepositoryUrl>
   <RepositoryType>git</RepositoryType>
   
   <ItemGroup>
