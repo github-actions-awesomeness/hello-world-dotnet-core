@@ -17,11 +17,12 @@ jobs:
       uses: actions/setup-dotnet@master
       with: 
         dotnet-version: 3.1.101
+        servers: '[{"id": "github", "username": "x-access-token", "password": "${GITHUB_TOKEN}"}]'
     - name: Build
       run: dotnet build --configuration Release
     - name: Pack
       run: dotnet pack --configuration Release --version-suffix action-testing -o "./packages"
     - name: Publish
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_AUTH_TOKEN}}
-      run: dotnet nuget push -s https://www.nuget.org/api/v2/package -k $NUGET_AUTH_TOKEN ./packages/*.nupkg
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push -s https://www.nuget.org/api/v2/package -k $GITHUB_TOKEN ./packages/*.nupkg
