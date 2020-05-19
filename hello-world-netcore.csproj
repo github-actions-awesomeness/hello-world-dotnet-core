@@ -6,6 +6,9 @@
     <RootNamespace>hello_world_netcore</RootNamespace>
   </PropertyGroup>
 
+  <RepositoryUrl>https://github.com/EoflaOE/Kernel-Simulator.git</RepositoryUrl>
+  <RepositoryType>git</RepositoryType>
+  
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.4" />
   </ItemGroup>
