@@ -25,4 +25,5 @@ jobs:
     - name: Publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: dotnet nuget push -s https://www.nuget.org/api/v2/package -k $GITHUB_TOKEN ./packages/*.nupkg
+      #run: dotnet nuget push -s https://www.nuget.org/api/v2/package -k $GITHUB_TOKEN ./packages/*.nupkg
+      run: dotnet nuget push "bin/Release/hello-world-dotnet-core.1.0.0.nupkg" --source "github"
