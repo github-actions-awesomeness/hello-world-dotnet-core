@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: azure
+    runs-on: PetrPntb
     
     steps:
     - uses: actions/checkout@v1
